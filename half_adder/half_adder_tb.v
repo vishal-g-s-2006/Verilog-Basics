@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module half_adder_tb;
+module half_adder_behavioral_tb;
 
     reg  a;
     reg  b;
@@ -8,7 +8,7 @@ module half_adder_tb;
     wire carry;
 
     // Instantiate the Unit Under Test (UUT)
-    half_adder uut (
+    half_adder_behavioral uut (
         .a(a),
         .b(b),
         .sum(sum),

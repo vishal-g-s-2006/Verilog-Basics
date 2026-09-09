@@ -1,11 +1,12 @@
-module half_adder (
+module half_adder_behavioral (
     input  wire a,
     input  wire b,
-    output wire sum,
-    output wire carry
+    output reg  sum,
+    output reg  carry
 );
 
-    assign sum   = a ^ b;
-    assign carry = a & b;
+    always @(a, b) begin
+        {carry, sum} = a + b;
+    end
 
 endmodule
