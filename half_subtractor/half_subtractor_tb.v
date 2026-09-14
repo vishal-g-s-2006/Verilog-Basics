@@ -1,23 +1,23 @@
 `timescale 1ns / 1ps
 
-module and_gate_tb;
+module half_subtractor_tb;
 
     reg  a;
     reg  b;
-    wire y;
+    wire diff;
+    wire borrow;
 
     // Instantiate the Unit Under Test (UUT)
-    and_gate uut (
+    half_subtractor uut (
         .a(a),
         .b(b),
-        .y(y)
+        .diff(diff),
+        .borrow(borrow)
     );
 
     initial begin
-        $dumpfile("and.vcd");
-        $dumpvars(0, and_gate_tb);
-        $display("Time\t a b | y");
-        $monitor("%0t\t %b %b | %b", $time, a, b, y);
+        $display("Time\t a b | diff borrow");
+        $monitor("%0t\t %b %b | %b    %b", $time, a, b, diff, borrow);
 
         a = 0; b = 0;
         #10;
